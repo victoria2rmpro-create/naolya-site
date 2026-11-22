@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naolya Studio – Extensions de cils, lash lift & browlift à Monnaie (37)</title>
+<meta name="description" content="Naolya Studio, technicienne de cils à Monnaie (37380) : extensions de cils, lash lift, browlift. Réservez en ligne votre créneau.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fdf7f2;--card:#fff;--brun:#6e3445;--accent:#b4586b;--line:#f0d9d6}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Montserrat',sans-serif;font-weight:300;color:var(--brun);background:var(--bg);line-height:1.7}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.04em}
+  section{padding:80px 7%}
+  h2{font-size:2.5rem;text-align:center;text-transform:uppercase;margin-bottom:44px}
+  a{color:inherit}
+  header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:16px 7%;background:rgba(253,247,242,.94);backdrop-filter:blur(6px);z-index:10}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none}
+  .logo-img{height:60px;width:auto;display:block}
+  nav{display:flex;align-items:center;gap:26px;font-size:.85rem}
+  nav a{text-decoration:none}
+  nav a:hover{color:var(--accent)}
+  .btn{display:inline-block;padding:14px 34px;background:var(--brun);color:#fff!important;border:0;border-radius:40px;font:400 .85rem 'Montserrat',sans-serif;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.3s}
+  .btn:hover{background:var(--accent)}
+  .btn:disabled{opacity:.5;cursor:wait}
+  .hero{min-height:100vh;padding-top:110px;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+  .hero h1{font-size:clamp(2.8rem,6vw,5rem);line-height:1.05;text-transform:uppercase;margin-bottom:22px}
+  .hero p{max-width:480px;margin-bottom:30px}
+  .hero img{width:100%;max-width:420px;justify-self:center;aspect-ratio:3/4;object-fit:cover;border-radius:999px 999px 24px 24px}
+  .tarifs{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;max-width:1100px;margin:auto}
+  .card{background:var(--card);border:1px solid var(--line);padding:32px;border-radius:20px}
+  .card h3{font-size:1.5rem;text-transform:uppercase;margin-bottom:14px;text-align:center}
+  .card table{width:100%;border-collapse:collapse}
+  .card th{font-weight:400;font-size:.75rem;text-transform:uppercase;color:var(--accent);text-align:right}
+  .card th:first-child{text-align:left}
+  .card td{padding:7px 0;border-bottom:1px dashed var(--line);text-align:right}
+  .card td:first-child{text-align:left}
+  .card tr:last-child td{border-bottom:0}
+  .note{text-align:center;margin-top:28px;font-size:.9rem}
+  .galerie{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;max-width:1100px;margin:auto}
+  .galerie img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px}
+  #reserver{background:var(--card)}
+  .book{max-width:680px;margin:auto}
+  .step{margin-bottom:26px}
+  .step>label,.step>.lbl{display:block;font-weight:500;margin-bottom:8px}
+  select,input,textarea{width:100%;padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;font:300 1rem 'Montserrat',sans-serif;color:var(--brun)}
+  .info{font-size:.88rem;color:var(--accent);margin-top:8px}
+  .cal{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}
+  .cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+  .cal-head button{background:none;border:0;font-size:1.4rem;cursor:pointer;color:var(--brun);padding:4px 12px}
+  .cal-head button:disabled{opacity:.25;cursor:default}
+  #cal-title{text-transform:capitalize;font-weight:500}
+  .grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+  .grid7 .wd{font-size:.72rem;color:var(--accent)}
+  .day{aspect-ratio:1;border:0;border-radius:50%;background:none;font:400 .95rem 'Montserrat',sans-serif;color:var(--brun);cursor:pointer}
+  .day:disabled{color:#cbbdb1;cursor:default}
+  .day:not(:disabled){background:#f6e6e3}
+  .day:not(:disabled):hover,.day.sel{background:var(--brun);color:#fff}
+  .slots{display:flex;flex-wrap:wrap;gap:10px}
+  .slot{padding:10px 20px;border:1px solid var(--brun);border-radius:30px;background:#fff;font:400 .95rem 'Montserrat',sans-serif;color:var(--brun);cursor:pointer}
+  .slot.sel,.slot:hover{background:var(--brun);color:#fff}
+  .recap{background:#f6e6e3;border-radius:12px;padding:14px 18px;margin-bottom:16px;font-weight:400}
+  .form{display:grid;gap:12px}
+  .check{display:flex;gap:10px;font-size:.85rem;align-items:flex-start}
+  .check input{width:auto;margin-top:5px}
+  .hp{position:absolute;left:-9999px}
+  .msg{padding:14px;border-radius:12px;background:#f8e3df;margin-top:12px}
+  .hidden{display:none}
+  .done{text-align:center}
+  .done h3{font-size:2rem;margin-bottom:10px}
+  .wero{display:inline-block;background:#fff;border:1px dashed var(--accent);border-radius:14px;padding:16px 26px;margin:18px 0;font-size:1.3rem;font-weight:500}
+  .infos{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px;max-width:1000px;margin:auto;text-align:center}
+  .infos h3{font-size:1.4rem;text-transform:uppercase;margin-bottom:8px}
+  .policy{max-width:680px;margin:50px auto 0;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px;text-align:center}
+  .policy h3{font-size:1.5rem;text-transform:uppercase;margin-bottom:10px}
+  footer{text-align:center;padding:26px;font-size:.8rem;background:var(--brun);color:#fff}
+  @media(max-width:760px){
+    .hero{grid-template-columns:1fr;text-align:center;padding-top:100px}
+    .hero p{margin-inline:auto}
+    nav a:not(.btn){display:none}
+    section{padding:60px 6%}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#"><img class="logo-img" src="images/logo.jpg" alt="Naolya Studio – Cils & sourcils"></a>
+  <nav>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#infos">Infos</a>
+    <a class="btn" href="#reserver">Réserver</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Naolya<br>Studio</h1>
+    <p>Extensions de cils, lash lift et browlift à Monnaie. Un regard sublimé, naturel et lumineux, dans un cadre doux et chaleureux.</p>
+    <a class="btn" href="#reserver">Prendre rendez-vous</a>
+  </div>
+  <img src="images/IMG_1371.jpg" alt="Lash lift et browlift réalisés par Naolya Studio">
+</section>
+
+<section id="tarifs">
+  <h2>Tarifs</h2>
+  <div class="tarifs" id="tarifs-grid"></div>
+  <p class="note">Un acompte de 15 € est demandé pour valider chaque réservation, quelle que soit la prestation.</p>
+</section>
+
+<section id="realisations">
+  <h2>Réalisations</h2>
+  <div class="galerie">
+    <img loading="lazy" src="images/IMG_1368.jpg" alt="Extensions de cils, effet naturel">
+    <img loading="lazy" src="images/IMG_1373.jpg" alt="Extensions de cils volume et restructuration des sourcils">
+    <img loading="lazy" src="images/IMG_1369.jpg" alt="Pose de cils réalisée à Naolya Studio">
+    <img loading="lazy" src="images/IMG_1366.jpg" alt="Extensions de cils volume russe et sourcils">
+  </div>
+  <p class="note">Plus de réalisations sur Instagram : <a href="https://instagram.com/naolyastudio" target="_blank" rel="noopener">@naolyastudio</a></p>
+</section>
+
+<section id="reserver">
+  <h2>Réserver</h2>
+  <div class="book" id="book">
+    <div class="step">
+      <label for="service">1. Choisissez votre prestation</label>
+      <select id="service"></select>
+      <p class="info" id="svc-info"></p>
+    </div>
+
+    <div class="step hidden" id="step-date">
+      <span class="lbl">2. Choisissez un jour</span>
+      <div id="loading" class="info">Chargement des disponibilités…</div>
+      <div class="cal hidden" id="cal">
+        <div class="cal-head">
+          <button type="button" id="prev" aria-label="Mois précédent">‹</button>
+          <span id="cal-title"></span>
+          <button type="button" id="next" aria-label="Mois suivant">›</button>
+        </div>
+        <div class="grid7">
+          <span class="wd">Lu</span><span class="wd">Ma</span><span class="wd">Me</span><span class="wd">Je</span><span class="wd">Ve</span><span class="wd">Sa</span><span class="wd">Di</span>
+        </div>
+        <div class="grid7" id="cal-grid"></div>
+      </div>
+      <p class="msg hidden" id="no-slot">Aucun créneau disponible pour le moment. Vous pouvez me demander un créneau particulier sur Instagram : <a href="https://instagram.com/naolyastudio" target="_blank" rel="noopener">@naolyastudio</a>.</p>
+    </div>
+
+    <div class="step hidden" id="step-time">
+      <span class="lbl">3. Choisissez l'horaire</span>
+      <div class="slots" id="slots"></div>
+    </div>
+
+    <form class="step form hidden" id="step-form">
+      <span class="lbl">4. Vos coordonnées</span>
+      <div class="recap" id="recap"></div>
+      <input type="text" name="name" placeholder="Nom et prénom" required autocomplete="name">
+      <input type="tel" name="phone" placeholder="Téléphone" required autocomplete="tel">
+      <input type="email" name="email" placeholder="E-mail" required autocomplete="email">
+      <textarea name="message" rows="3" placeholder="Un message ? (allergie, première pose, remplissage…)"></textarea>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="check"><input type="checkbox" required> J'ai compris que mon rendez-vous sera validé après réception d'un acompte de 15 € par Wero, remboursé en cas d'annulation plus de 48 h avant le rendez-vous, et conservé en dessous de 48 h.</label>
+      <button class="btn" type="submit" id="submit">Envoyer ma demande</button>
+      <p class="msg hidden" id="error"></p>
+    </form>
+  </div>
+
+  <div class="book done hidden" id="done">
+    <h3>Demande enregistrée 🤍</h3>
+    <p id="done-recap"></p>
+    <p style="margin-top:14px">Pour valider votre rendez-vous, envoyez <strong>15 €</strong> par <strong>Wero</strong> au :</p>
+    <div class="wero"><span id="wero">07 79 42 77 67</span></div><br>
+    <button class="btn" type="button" id="copy">Copier le numéro</button>
+    <p class="info" style="margin-top:18px">Indiquez votre nom en message. Sans acompte sous 24 h, le créneau sera libéré.<br>Un e-mail récapitulatif vient de vous être envoyé (pensez à vérifier vos spams). Vous recevrez un second e-mail dès que l'acompte sera reçu.</p>
+  </div>
+
+  <p class="note">Besoin d'un créneau en dehors de ces horaires ? Écrivez-moi sur Instagram : <a href="https://instagram.com/naolyastudio" target="_blank" rel="noopener"><strong>@naolyastudio</strong></a></p>
+</section>
+
+<section id="infos">
+  <h2>Infos pratiques</h2>
+  <div class="infos">
+    <div><h3>Adresse</h3><p>22 rue de la Pierre à Bidault<br>37380 Monnaie<br>
+      <a href="https://www.google.com/maps/search/?api=1&query=22+rue+de+la+Pierre+%C3%A0+Bidault+37380+Monnaie" target="_blank" rel="noopener">Voir sur la carte</a></p></div>
+    <div><h3>Horaires</h3><p>Du lundi au vendredi<br>9h – 12h<br>13h15 – 17h15<br><span style="font-size:.85rem">Uniquement sur rendez-vous</span></p></div>
+    <div><h3>Instagram</h3><p><a href="https://instagram.com/naolyastudio" target="_blank" rel="noopener">@naolyastudio</a><br><span style="font-size:.85rem">Créneaux particuliers sur demande</span></p></div>
+  </div>
+  <div class="policy">
+    <h3>Politique d'annulation</h3>
+    <p>Acompte de 15 € pour valider chaque rendez-vous.<br>
+    Annulation plus de 48 h avant : acompte remboursé.<br>
+    Annulation moins de 48 h avant : acompte conservé.</p>
+  </div>
+</section>
+
+<footer>© 2026 Naolya Studio – 22 rue de la Pierre à Bidault, 37380 Monnaie · Mentions légales</footer>
+
+<script>
+// ======== CONFIG ========
+const API = 'COLLE_ICI_L_URL_DE_L_APPLICATION_WEB';
+
+// ======== PRESTATIONS (mêmes id et durées que dans le script Google) ========
+const SERVICES = [];
+const EXT = [['cac','Cils à cils',40,30,35],['mixte','Mixte',50,40,45],['biche','Œil de biche',50,40,45],['demi','Demi pause',45,35,40],['russe','Russe',60,50,55]];
+EXT.forEach(([id,n,p]) => SERVICES.push({id, group:'ext', name:'Extension '+n, price:p, dur:135}));
+EXT.forEach(([id,n,p,p3]) => SERVICES.push({id:'r3-'+id, group:'fill', name:'Remplissage 3 sem. – '+n, price:p3, dur:90}));
+EXT.forEach(([id,n,p,p3,p4]) => SERVICES.push({id:'r4-'+id, group:'fill', name:'Remplissage 4 sem. – '+n, price:p4, dur:90}));
+SERVICES.push(
+  {id:'lift',   group:'lift', name:'Lash lift', price:40, dur:60},
+  {id:'lift-t', group:'lift', name:'Lash lift + teinture', price:50, dur:60},
+  {id:'epil',   group:'brow', name:'Épilation sourcils', price:5, dur:15},
+  {id:'epil-t', group:'brow', name:'Épilation + teinture', price:15, dur:30},
+  {id:'brow',   group:'brow', name:'Browlift', price:40, dur:60},
+  {id:'brow-t', group:'brow', name:'Browlift + teinture', price:50, dur:60},
+  {id:'pack1',  group:'pack', name:'Pack : lash lift + browlift + épilation + teinture x2', price:80, dur:120},
+  {id:'pack2',  group:'pack', name:'Pack : lash lift + épilation + teinture x2', price:55, dur:120}
+);
+const GROUPS = [['ext','Extensions de cils'],['fill','Remplissage'],['lift','Lash lift'],['brow','Sourcils / Browlift'],['pack','Packs complets']];
+
+// ======== OUTILS ========
+const $ = s => document.querySelector(s);
+const pad = n => String(n).padStart(2,'0');
+const key = (y,m,d) => `${y}-${pad(m+1)}-${pad(d)}`;
+const fmtT = t => t.replace(':','h');
+const fmtDur = m => m<60 ? m+' min' : Math.floor(m/60)+'h'+(m%60?pad(m%60):'');
+const fmtDate = k => { const [y,m,d]=k.split('-').map(Number); return new Date(y,m-1,d).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'}); };
+const show = (el,v=true) => el.classList.toggle('hidden',!v);
+const state = {service:null, avail:{}, date:null, time:null, view:new Date()};
+
+// ======== AFFICHAGE DES TARIFS ========
+(function(){
+  const g = id => SERVICES.find(s=>s.id===id);
+  const rows = ids => ids.map(id=>`<tr><td>${g(id).name}</td><td>${g(id).price} €</td></tr>`).join('');
+  const ext = EXT.map(([id,n,p,p3,p4])=>`<tr><td>${n}</td><td>${p} €</td><td>${p3} €</td><td>${p4} €</td></tr>`).join('');
+  $('#tarifs-grid').innerHTML = `
+    <div class="card"><h3>Extensions de cils</h3>
+      <table><tr><th></th><th>Pose</th><th>Remp. 3 sem.</th><th>Remp. 4 sem.</th></tr>${ext}</table></div>
+    <div class="card"><h3>Lash lift</h3><p style="text-align:center;font-size:.85rem;margin-bottom:8px">Rehaussement de cils</p>
+      <table>${rows(['lift','lift-t'])}</table>
+      <h3 style="margin-top:26px">Sourcils / Browlift</h3><table>${rows(['epil','epil-t','brow','brow-t'])}</table></div>
+    <div class="card"><h3>Packs complets</h3><table>${rows(['pack1','pack2'])}</table></div>`;
+})();
+
+// ======== RÉSERVATION ========
+$('#service').innerHTML = '<option value="">Choisir une prestation…</option>' +
+  GROUPS.map(([gr,l])=>`<optgroup label="${l}">`+SERVICES.filter(s=>s.group===gr).map(s=>`<option value="${s.id}">${s.name} – ${s.price} €</option>`).join('')+'</optgroup>').join('');
+
+$('#service').onchange = async function(){
+  state.date = state.time = null;
+  ['#step-date','#step-time','#step-form'].forEach(s=>show($(s),false));
+  show($('#cal'),false); show($('#no-slot'),false);
+  state.service = SERVICES.find(s=>s.id===this.value);
+  if(!state.service){ $('#svc-info').textContent=''; return; }
+  $('#svc-info').textContent = `Durée estimée : ${fmtDur(state.service.dur)} · Prix : ${state.service.price} € · Acompte : 15 €`;
+  show($('#step-date')); show($('#loading'));
+  $('#loading').textContent = 'Chargement des disponibilités…';
+  try{
+    if(API.startsWith('COLLE')) throw new Error('config');
+    const r = await fetch(`${API}?action=availability&service=${state.service.id}`);
+    state.avail = (await r.json()).days || {};
+    show($('#loading'),false);
+    const keys = Object.keys(state.avail).sort();
+    if(!keys.length){ show($('#no-slot')); return; }
+    const [y,m] = keys[0].split('-').map(Number);
+    state.view = new Date(y,m-1,1);
+    show($('#cal')); renderCal();
+  }catch(e){
+    $('#loading').textContent = 'Impossible de charger les disponibilités pour le moment. Contactez-moi sur Instagram : @naolyastudio';
+  }
+};
+
+function renderCal(){
+  const v = state.view, y = v.getFullYear(), m = v.getMonth();
+  $('#cal-title').textContent = v.toLocaleDateString('fr-FR',{month:'long',year:'numeric'});
+  const first = (new Date(y,m,1).getDay()+6)%7, n = new Date(y,m+1,0).getDate();
+  let h = '<span></span>'.repeat(first);
+  for(let d=1; d<=n; d++){
+    const k = key(y,m,d);
+    h += `<button type="button" class="day${state.date===k?' sel':''}" data-d="${k}" ${state.avail[k]?'':'disabled'}>${d}</button>`;
+  }
+  $('#cal-grid').innerHTML = h;
+  const keys = Object.keys(state.avail).sort();
+  const idx = k => { const [a,b]=k.split('-').map(Number); return a*12+b-1; };
+  $('#prev').disabled = y*12+m <= idx(keys[0]);
+  $('#next').disabled = y*12+m >= idx(keys[keys.length-1]);
+}
+$('#prev').onclick = () => { state.view.setMonth(state.view.getMonth()-1); renderCal(); };
+$('#next').onclick = () => { state.view.setMonth(state.view.getMonth()+1); renderCal(); };
+
+$('#cal-grid').onclick = e => {
+  const k = e.target.dataset.d; if(!k) return;
+  state.date = k; state.time = null; renderCal();
+  $('#slots').innerHTML = state.avail[k].map(t=>`<button type="button" class="slot" data-t="${t}">${fmtT(t)}</button>`).join('');
+  show($('#step-time')); show($('#step-form'),false);
+};
+
+$('#slots').onclick = e => {
+  const t = e.target.dataset.t; if(!t) return;
+  state.time = t;
+  document.querySelectorAll('.slot').forEach(b=>b.classList.toggle('sel',b.dataset.t===t));
+  $('#recap').innerHTML = `${state.service.name}<br>${fmtDate(state.date)} à ${fmtT(t)}`;
+  show($('#step-form'));
+  $('#step-form').scrollIntoView({behavior:'smooth',block:'center'});
+};
+
+$('#step-form').onsubmit = async e => {
+  e.preventDefault();
+  const f = e.target, btn = $('#submit'), err = $('#error');
+  show(err,false); btn.disabled = true; btn.textContent = 'Envoi…';
+  try{
+    const r = await fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({
+      service:state.service.id, date:state.date, time:state.time,
+      name:f.name.value, phone:f.phone.value, email:f.email.value, message:f.message.value, website:f.website.value
+    })});
+    const j = await r.json();
+    if(j.ok){
+      $('#done-recap').innerHTML = `<strong>${state.service.name}</strong><br>${fmtDate(state.date)} à ${fmtT(state.time)}`;
+      show($('#book'),false); show($('#done')); $('#done').scrollIntoView({behavior:'smooth',block:'center'});
+    }else if(j.error==='slot_taken'){
+      err.textContent = "Ce créneau vient d'être réservé par quelqu'un d'autre. Merci d'en choisir un autre.";
+      show(err); $('#service').onchange();
+    }else{
+      err.textContent = "Vérifiez vos informations (e-mail et téléphone) puis réessayez."; show(err);
+    }
+  }catch(x){
+    err.textContent = "Une erreur est survenue. Réessayez ou contactez-moi sur Instagram : @naolyastudio"; show(err);
+  }
+  btn.disabled = false; btn.textContent = 'Envoyer ma demande';
+};
+
+$('#copy').onclick = function(){
+  navigator.clipboard.writeText('0779427767'); this.textContent = 'Numéro copié ✓';
+};
+</script>
+</body>
+</html>
